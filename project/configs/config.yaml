@@ -1,0 +1,59 @@
+experiment_name: cst_lymph_node_reproduction
+
+model:
+  num_slices: 6
+  base_channels: 64
+  hidden_dim: 128
+  transformer_layers: 3
+  num_heads: 8
+  variant: full
+
+abrm:
+  lambda_boundary: 0.2
+  supervise_initial: true
+  lambda_initial: 0.5
+  enable_refinement: true
+
+preprocessing:
+  hu_min: -50.0
+  hu_max: 300.0
+  per_case_norm: true
+  context_offsets:
+    - -2
+    - -1
+    - 0
+    - 1
+    - 2
+  spacing:
+    - 1.5
+    - 0.5
+    - 0.5
+
+training:
+  batch_size: 4
+  grad_accum_steps: 4
+  lr: 0.0001
+  lr_min: 1.0e-06
+  weight_decay: 0.0001
+  warmup_epochs: 1
+  epochs: 10
+  grad_clip: 1.0
+  ema_decay: 0.999
+  foreground_sample_weight: 5.0
+  val_interval: 1
+  patience: 10
+
+augmentation:
+  random_crop_size: 256
+  hflip_prob: 0.5
+  rotation_prob: 0.3
+  rotation_limit: 10
+  intensity_shift_prob: 0.5
+  gaussian_noise_prob: 0.3
+
+validation:
+  threshold: 0.5
+  batch_size: 8
+
+seed: 42
+

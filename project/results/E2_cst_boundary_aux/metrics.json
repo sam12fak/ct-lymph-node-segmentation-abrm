@@ -1,0 +1,109 @@
+{
+  "experiment": "E2: Boundary Head Only",
+  "enable_refinement": false,
+  "lambda_boundary": 0.2,
+  "total_time_s": 374.36334776878357,
+  "best_val_dice": 0.003700825745109928,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0054538150628407,
+      "val_dice": 0.003417567169443703,
+      "val_iou": 0.0017117085248416447,
+      "val_precision": 0.0017117096178589932,
+      "val_recall": 0.9996268656716418,
+      "val_hd95": 74.03883923295444,
+      "val_boundary_f1": 1.919630693084288e-05,
+      "lr": 0.0001,
+      "vram_mb": 1998.4560546875,
+      "epoch_duration_s": 125.19124484062195
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9563923915227254,
+      "val_dice": 0.0035467238964200154,
+      "val_iou": 0.0017765123483826784,
+      "val_precision": 0.0017765135257055455,
+      "val_recall": 0.9996268656716418,
+      "val_hd95": 74.06922205199977,
+      "val_boundary_f1": 3.83209855464108e-05,
+      "lr": 0.0001,
+      "vram_mb": 1998.4560546875,
+      "epoch_duration_s": 124.33006978034973
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.9421037991841634,
+      "val_dice": 0.003700825745109928,
+      "val_iou": 0.0018538432484462128,
+      "val_precision": 0.0018538445308079856,
+      "val_recall": 0.9996268656716418,
+      "val_hd95": 74.09769249131207,
+      "val_boundary_f1": 5.2420401128423395e-05,
+      "lr": 5.05e-05,
+      "vram_mb": 1998.4560546875,
+      "epoch_duration_s": 124.30026960372925
+    }
+  ],
+  "config": {
+    "experiment_name": "cst_lymph_node_reproduction",
+    "model": {
+      "num_slices": 6,
+      "base_channels": 64,
+      "hidden_dim": 128,
+      "transformer_layers": 3,
+      "num_heads": 8,
+      "variant": "full"
+    },
+    "abrm": {
+      "lambda_boundary": 0.2,
+      "supervise_initial": true,
+      "lambda_initial": 0.5,
+      "enable_refinement": true
+    },
+    "preprocessing": {
+      "hu_min": -50.0,
+      "hu_max": 300.0,
+      "per_case_norm": true,
+      "context_offsets": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "spacing": [
+        1.5,
+        0.5,
+        0.5
+      ]
+    },
+    "training": {
+      "batch_size": 4,
+      "grad_accum_steps": 4,
+      "lr": 0.0001,
+      "lr_min": 1e-06,
+      "weight_decay": 0.0001,
+      "warmup_epochs": 1,
+      "epochs": 10,
+      "grad_clip": 1.0,
+      "ema_decay": 0.999,
+      "foreground_sample_weight": 5.0,
+      "val_interval": 1,
+      "patience": 10
+    },
+    "augmentation": {
+      "random_crop_size": 256,
+      "hflip_prob": 0.5,
+      "rotation_prob": 0.3,
+      "rotation_limit": 10,
+      "intensity_shift_prob": 0.5,
+      "gaussian_noise_prob": 0.3
+    },
+    "validation": {
+      "threshold": 0.5,
+      "batch_size": 8
+    },
+    "seed": 42
+  }
+}

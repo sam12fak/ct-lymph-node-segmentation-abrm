@@ -1,0 +1,16 @@
+{
+  "herald": {
+    "context": {
+      "tags": [
+        "c:\\Users\\vijay\\OneDrive\\Documents\\aimi"
+      ],
+      "user": "vijay",
+      "trust": "LOW",
+      "source": "path",
+      "propagates": false,
+      "derived": true,
+      "derivedFrom": "path",
+      "storedAt": "2026-11-03T13:18:03.705Z"
+    }
+  }
+}

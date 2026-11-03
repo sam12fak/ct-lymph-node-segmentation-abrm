@@ -1,0 +1,50 @@
+[
+  {
+    "id": "E1",
+    "name": "Original CST Baseline",
+    "dice": 0.30678136877279805,
+    "iou": 0.18120426185021243,
+    "precision": 0.996031746031746,
+    "recall": 0.18134328358208956,
+    "boundary_f1": 0.5723898300063959,
+    "hd95": 2.707737973711325,
+    "small_dice": 0.0,
+    "med_dice": NaN,
+    "large_dice": NaN,
+    "params_M": 8.175876,
+    "latency_ms": 65.19078413645427,
+    "fps": 15.339591527336859
+  },
+  {
+    "id": "E2",
+    "name": "CST + Auxiliary Boundary Head",
+    "dice": 0.0,
+    "iou": 0.0,
+    "precision": 1.0,
+    "recall": 0.0,
+    "boundary_f1": 0.0,
+    "hd95": 100.0,
+    "small_dice": 0.0,
+    "med_dice": NaN,
+    "large_dice": NaN,
+    "params_M": 8.194405,
+    "latency_ms": 69.44353580474854,
+    "fps": 14.400188417992682
+  },
+  {
+    "id": "E3",
+    "name": "CST + Proposed ABRM (Refinement)",
+    "dice": 0.821868264098562,
+    "iou": 0.6976176480918066,
+    "precision": 0.8067605880880946,
+    "recall": 0.8380597014925373,
+    "boundary_f1": 0.9977214870825457,
+    "hd95": 1.5,
+    "small_dice": 0.0,
+    "med_dice": NaN,
+    "large_dice": NaN,
+    "params_M": 8.232006,
+    "latency_ms": 77.14316844940186,
+    "fps": 12.962910651717646
+  }
+]
